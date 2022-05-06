@@ -1,0 +1,164 @@
+@charset "UTF-8";
+/*GLOBAL RESET*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Début du code */
+header input {
+  display: none;
+}
+header #lab {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  cursor: pointer;
+  display: none;
+}
+header #lab .ligne {
+  width: 30px;
+  height: 4px;
+  background: #000;
+}
+header #lab .ligne::before, header #lab .ligne::after {
+  content: "";
+  width: 30px;
+  height: 4px;
+  background: #000;
+  position: absolute;
+}
+header #lab .ligne::before {
+  transform: translateY(-12px);
+}
+header #lab .ligne::after {
+  transform: translateY(12px);
+}
+header #ch:checked + #lab .ligne {
+  width: 0;
+  transition: 0.3s;
+}
+header #ch:checked + #lab .ligne::before {
+  transform: rotate(45deg);
+  transition: 0.3s;
+}
+header #ch:checked + #lab .ligne::after {
+  transform: rotate(-45deg);
+  transition: 0.3s;
+}
+header nav {
+  display: flex;
+}
+header nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  width: 20%;
+  padding: 20px 0;
+  text-align: center;
+}
+header nav a:hover {
+  color: #000;
+  background: rgba(221, 221, 221, 0.5);
+}
+
+@media screen and (max-width: 420px) {
+  header #lab {
+    display: flex;
+  }
+  header nav {
+    flex-direction: column;
+    transform: translate(-1000px);
+    transition: all 0.5s ease-in-out;
+  }
+  header nav a {
+    width: auto;
+    text-align: left;
+    padding-left: 20px;
+    transition: 0.4s;
+  }
+  header nav a:hover {
+    padding-left: 40px;
+    transition: 0.4s;
+  }
+  header #ch:checked + #lab + nav {
+    transform: translate(0);
+    transition: all 0.5s ease-in-out;
+  }
+  header #ch:checked + #lab + nav a:nth-child(1) {
+    animation: slide 1s;
+  }
+  header #ch:checked + #lab + nav a:nth-child(2) {
+    animation: slide 1s 0.1s;
+  }
+  header #ch:checked + #lab + nav a:nth-child(3) {
+    animation: slide 1s 0.2s;
+  }
+  header #ch:checked + #lab + nav a:nth-child(4) {
+    animation: slide 1s 0.3s;
+  }
+  header #ch:checked + #lab + nav a:nth-child(5) {
+    animation: slide 1s 0.4s;
+  }
+}
+@keyframes slide {
+  0% {
+    padding: 20px;
+  }
+  50% {
+    padding: 20px 200px;
+  }
+  100% {
+    padding: 20px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
